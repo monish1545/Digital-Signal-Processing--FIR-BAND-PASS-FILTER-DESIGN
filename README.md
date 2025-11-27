@@ -1,8 +1,11 @@
 # Digital-Signal-Processing--FIR-BAND-PASS-FILTER-DESIGN
+
 ## AIM:
 To generate design of Band Pass FIR digital filter using Window.
+
 ## Software Required:
 MAT LAB R2012.
+
 ## Algorithm:
 Step 1: Open MATLAB and Write the program.
 
@@ -20,6 +23,34 @@ Step 6: Terminate the program.
 
 ## PROGRAM: 
 
+```
+clc; % clear screen
+clear all; % clear screen
+close all; % close all figure windows
+Wc1=input('enter the value of Wc1=');
+Wc2=input('enter the value of Wc2=');
+N=input('enter the value of N=');
+alpha=(N-1)/2;
+eps=0.001;
+%Band Pass Filter Coefficient
+n=0:1:N-1; 
+hd=(sin(Wc1*(n-alpha+eps))-sin(Wc2*(n-alpha+eps)))./((n-alpha+eps)*pi)
+%Hanning Window Sequence
+n=0:1:N-1;
+wh=0.5-0.5*cos((2*pi*n)/(N-1))
+hn=hd.*wh
+% Plot the Band Pass Filter with Blackman Window Technique
+w=0:0.01:pi;
+h=freqz(hn,1,w);
+plot(w/pi,abs(h),'blue');
+ 
+```
+
+
 ## OUTPUT:
+![a4f1c424-e46f-4672-bf99-1a31065e21de](https://github.com/user-attachments/assets/5b7e9049-582d-4db7-b2d7-94005784a258)
 
 ## RESULT:
+![b33b0bad-54c1-4282-943e-52b2e83aee0c](https://github.com/user-attachments/assets/8dd3c08c-abb9-4ba5-b4e0-b0cca5d7086d)
+
+
